@@ -1,0 +1,5 @@
+# Journaux et fichiers de travail — ne jamais publier
+*.log
+Thumbs.db
+desktop.ini
+.DS_Store

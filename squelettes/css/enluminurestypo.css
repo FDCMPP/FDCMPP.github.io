@@ -1,0 +1,48 @@
+.texteencadre-spip {
+	color: #8486c0;
+	background: #e9eae3;
+	border: 1px solid #8f90c5;
+	margin: 1em 2em;	
+	padding: 12px;	
+	position: relative;
+	font-size:13px;
+}
+
+.caractencadre-spip {
+	color: #F60;
+	font-weight: bold;
+}
+
+.caractencadre2-spip {
+	color: #009;
+	font-weight: bold;
+}
+
+acronym.spip_acronym {
+	cursor: help;
+	border-bottom: 1px dotted;
+}
+
+/* ne marche pas sur MSIE, a refaire en jQuery */
+a[hreflang]:after {
+content: "\0000a0[" attr(hreflang) "]";
+color: #999;
+background: transparent;
+font-size:x-small;
+}
+
+sup, sup.typo_exposants {
+	font-size: 10px;
+	font-variant: normal;
+	vertical-align: 24%;
+}
+
+sub {
+	font-size: 11px;
+	font-variant: normal;
+	vertical-align: -20%;
+}
+
+.caps {
+	font-variant: small-caps;
+}

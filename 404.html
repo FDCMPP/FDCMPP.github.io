@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Page introuvable — Fédération des CMPP</title>
+<style>
+ body{font-family:Arial,Helvetica,sans-serif;margin:0;padding:3rem 1rem;color:#222;background:#fff;text-align:center}
+ .b{max-width:38rem;margin:0 auto;border:1px solid #ddd;border-radius:8px;padding:2rem}
+ h1{font-size:1.4rem;color:#7a1f5c}
+ a{color:#7a1f5c}
+</style>
+<script>
+(function () {
+  "use strict";
+  // Anciennes adresses SPIP -> pages statiques équivalentes.
+  var articles = {"15":"spip-article-15.html","4":"spip-article-4.html","5":"spip-article-5.html","6":"spip-article-6.html","23":"adherer,23.html","227":"les-etats-generaux-de-la,227.html","196":"presentation,196.html"};
+  var documents = {"209":"spip-player-pop-209.html","211":"spip-player-pop-211.html","213":"spip-player-pop-213.html","215":"spip-player-pop-215.html"};
+  var chemin = location.pathname.replace(/^\/+/, "");
+  var q = location.search.replace(/^\?/, "");
+  var cible = null;
+
+  if (/^spip\.php$/i.test(chemin) || chemin === "") {
+    var m = q.match(/(?:^|&)article(\d+)/i) || q.match(/id_article=(\d+)/i);
+    if (m && articles[m[1]]) { cible = articles[m[1]]; }
+    else {
+      var d = q.match(/id_document=(\d+)/i);
+      if (d && documents[d[1]]) { cible = documents[d[1]]; }
+      else if (q) { cible = "index.html"; }
+    }
+  } else if (chemin && !/\.[a-z0-9]{1,5}$/i.test(chemin)) {
+    // Adresse sans extension : la page statique porte le même nom suivi de .html
+    cible = chemin + ".html";
+  }
+
+  if (cible) { location.replace("/" + cible); }
+})();
+</script>
+</head>
+<body>
+<div class="b">
+<h1>Page introuvable</h1>
+<p>Cette adresse ne correspond à aucune page de cette version du site.</p>
+<p><a href="/">Retour à l'accueil</a></p>
+<p style="font-size:.85rem;color:#666">Version consultable du site de la Fédération des CMPP. Les fonctions interactives (recherche, formulaires) sont momentanément indisponibles.</p>
+</div>
+</body>
+</html>
